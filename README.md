@@ -43,3 +43,19 @@
 
 - Properties used to pass data from one component to another, typically properties are passed from parent component to child component
 - similar to arguments to a function
+
+### React hooks
+
+**State**
+
+- `useState`
+- Brain of react component
+- Holds information about the component that can change
+- A component can have multiple states
+
+**useEffect**
+
+- fetching data from server or doing some cleanup after a component is removed
+- logging information
+- it runs 2 times in strict mode
+- Remove `StrictMode` tag in `main.jsx` and it will execute only once
