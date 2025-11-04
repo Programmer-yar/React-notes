@@ -10,6 +10,8 @@
   `npm run dev`
 - create a build for production:
   `npm run build`
+- Install tailwind css
+  `npm install tailwind @tailwindcss/vite`
 
 ## Basic Project setup intro
 
