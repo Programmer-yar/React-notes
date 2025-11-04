@@ -1,51 +1,41 @@
-// import { useState } from 'react'
+// typical imports starting with prefix 'use' indicate react hooks
+import { useState, useEffect, use } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
 
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
 // exmple react card component
 const Card = ({title}) => {
+  // const [variable, setVariable] = useState(initialState);
+  // as each card is independent component, it can have its own state
+  // thats why the state is defined inside the Card component
+  const [hasLiked, setHasLiked] = useState(false);
+  const [count, setCount] = useState(0);
+
+  // useEffect hook to perform side effects in function components
+  // it is executed 2 times
+  useEffect(() => {
+    console.log(`You have ${hasLiked ? 'liked' : 'not liked'} ${title}`);
+  }, [hasLiked]); // dependency array, 'effect' runs when hasLiked changes
+  
   return(
-  <div>
-    <h2>{title}</h2>
-    <p>This is a reusable card component.</p>
+    // don't update the value of state using the state variable directly instead use another
+    // callback function to update the state
+    // for example: onClick={() => setCount((prevState) => prevState + 1)}
+  <div className='card' onClick={() => setCount(count + 1)}>
+     {/* {count || null} is conditional rendering, if count is 0 it will render null instead of 0 */}
+    <h2>{title} - {count || null}</h2>
+    <button onClick={() => setHasLiked(!hasLiked)}>
+      {hasLiked ? 'liked !' : 'Like'}
+    </button>
   </div>
   )
 }
 
 const App = () => {
   return (
-  <div>
-    <h1>Hello React!</h1>
+  <div className='card-container'>
+    {/* <h1>Hello React!</h1> */}
     {/* Here title is passed as props to Card component */}
     <Card title="Avatar"/>
     <Card title="Jumanji"/>
