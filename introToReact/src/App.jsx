@@ -34,12 +34,10 @@ const Card = ({title}) => {
 
 const App = () => {
   return (
-  <div className='card-container'>
-    {/* <h1>Hello React!</h1> */}
-    {/* Here title is passed as props to Card component */}
-    <Card title="Avatar"/>
-    <Card title="Jumanji"/>
-    <Card title="Jim Carrey"/>
+  <div>
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
   </div>
   )
 }
