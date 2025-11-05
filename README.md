@@ -12,6 +12,8 @@
   `npm run build`
 - Install tailwind css
   `npm install tailwind @tailwindcss/vite`
+  - update the `vite.config.js` with following:
+  - import the tailwind css using `import tailwindcss from '@tailwindcss/vite'` and add `tailwindcss()` in the plugins
 
 ## Basic Project setup intro
 
